@@ -1,0 +1,141 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API V1",
+        "version": "0.1"
+    },
+    "paths": {
+        "api/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Register a new User",
+                "operationId": "be6599bdfc41183cf0d19b2519f60ea9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "example": 0
+                                        },
+                                        "message": {
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "string",
+                                            "example": {
+                                                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Login an existing User",
+                "operationId": "4ce4077807072036e82d5da69026cf3a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "example": 0
+                                        },
+                                        "message": {
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "string",
+                                            "example": {
+                                                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "LoginRequest": {
+                "title": "LoginRequest",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "password"
+                    }
+                },
+                "type": "object"
+            },
+            "RegisterRequest": {
+                "title": "RegisterRequest",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "example": "username"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "password"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Authentication",
+            "description": "Authentication"
+        }
+    ]
+}
