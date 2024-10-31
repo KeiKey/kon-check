@@ -8,9 +8,9 @@ use Illuminate\Foundation\Http\FormRequest;
  * @OA\Schema(
  *     schema="RegisterRequest",
  *     title="RegisterRequest",
- *     @OA\Property(property="username", type="string", example="username"),
+ *     @OA\Property(property="username", type="string", example="my-username"),
  *     @OA\Property(property="email", type="string", example="example@example.com"),
- *     @OA\Property(property="password", type="string", example="password")
+ *     @OA\Property(property="password", type="string", example="Password1!")
  * )
  */
 class RegisterRequest extends FormRequest

@@ -94,6 +94,216 @@
                     }
                 }
             }
+        },
+        "api/v1/articles": {
+            "get": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Retrive a listing of the Articles",
+                "operationId": "268a03dbb146ec4695d2f80c4228e66e",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Bearer epl5d5olRkge9DK60acfBrrFIHufNeVIXngSWJ7ReCNkr11I6WL"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "example": "OK"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Article"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Store new Article",
+                "operationId": "bb4d19dc1d2e9966e5af449dfff3c44a",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Bearer epl5d5olRkge9DK60acfBrrFIHufNeVIXngSWJ7ReCNkr11I6WL"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreArticleRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "example": 201
+                                        },
+                                        "message": {
+                                            "example": "OK"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Article"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/v1/articles/{uuid}": {
+            "get": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Get an existing Article",
+                "operationId": "19ce0ac1439cf3881962b4ffdb550044",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "Article uuid",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "389ffffe-b89c-47b6-bc63-cf5fd2a88218"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Bearer epl5d5olRkge9DK60acfBrrFIHufNeVIXngSWJ7ReCNkr11I6WL"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "example": "OK"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Article"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Delete existing Article",
+                "operationId": "8b0f4c6db5f6afe171e96c2b943fb46b",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "Article uuid",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "389ffffe-b89c-47b6-bc63-cf5fd2a88218"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Bearer epl5d5olRkge9DK60acfBrrFIHufNeVIXngSWJ7ReCNkr11I6WL"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "example": 204
+                                        },
+                                        "message": {
+                                            "example": "OK"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Article"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -107,7 +317,7 @@
                     },
                     "password": {
                         "type": "string",
-                        "example": "password"
+                        "example": "Password1!"
                     }
                 },
                 "type": "object"
@@ -117,7 +327,7 @@
                 "properties": {
                     "username": {
                         "type": "string",
-                        "example": "username"
+                        "example": "my-username"
                     },
                     "email": {
                         "type": "string",
@@ -125,7 +335,61 @@
                     },
                     "password": {
                         "type": "string",
-                        "example": "password"
+                        "example": "Password1!"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreArticleRequest": {
+                "title": "StoreArticleRequest",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "example": "text based article"
+                    }
+                },
+                "type": "object"
+            },
+            "Article": {
+                "title": "Article",
+                "properties": {
+                    "uuid": {
+                        "type": "string",
+                        "example": "389ffffe-b89c-47b6-bc63-cf5fd2a88218"
+                    },
+                    "content": {
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "type": {
+                        "type": "string",
+                        "example": "Text"
+                    },
+                    "result": {
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "example@example.com"
+                    }
+                },
+                "type": "object"
+            },
+            "User": {
+                "title": "User",
+                "properties": {
+                    "uuid": {
+                        "type": "string",
+                        "example": "389ffffe-b89c-47b6-bc63-cf5fd2a88218"
+                    },
+                    "username": {
+                        "type": "string",
+                        "example": "my-username"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "example@example.com"
                     }
                 },
                 "type": "object"
@@ -136,6 +400,10 @@
         {
             "name": "Authentication",
             "description": "Authentication"
+        },
+        {
+            "name": "Articles",
+            "description": "Articles"
         }
     ]
 }

@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Models\User;
+namespace App\Models\Article;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,20 +10,21 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
 /**
- * Class User
+ * Class Article
  *
  * @property int id
+ * @property int user_id
  * @property string uuid
- * @property string username
- * @property string email
- * @property string email_verified_at
+ * @property string content
+ * @property string type
+ * @property string result
  * @property string created_at
  * @property string updated_at
  * @property string deleted_at
  */
-class User extends Authenticatable
+class Article extends Authenticatable
 {
-    use HasFactory, Notifiable, HasApiTokens, AttributesTrait, ScopesTrait, RelationshipTrait, SoftDeletes;
+    use AttributesTrait, ScopesTrait, RelationshipTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -32,10 +32,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'user_id',
         'uuid',
-        'username',
-        'email',
-        'password'
+        'content',
+        'type',
+        'result'
     ];
 
     /**
@@ -45,7 +46,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token'
+        'remember_token',
     ];
 
     /**
@@ -57,7 +58,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password'          => 'hashed'
+            'password' => 'hashed',
         ];
     }
 }

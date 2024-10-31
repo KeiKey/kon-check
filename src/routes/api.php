@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\ArticleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PassportAuthController;
@@ -13,5 +14,5 @@ Route::post('login', [PassportAuthController::class, 'login']);
 
 // V1 API Routes
 Route::group(['prefix' => 'v1', 'middleware' => ['auth:api']], function () {
-//    Route::apiResource('individuals', IndividualController::class, ['as' => 'api.v1'])->scoped(['individual' => 'uuid']);
+    Route::apiResource('articles', ArticleController::class, ['as' => 'api.v1'])->scoped(['article' => 'uuid'])->except(['update']);
 });
