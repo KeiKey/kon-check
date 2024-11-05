@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-    laravel:
+    kon-check:
 
 services:
     nginx:
@@ -16,10 +16,10 @@ services:
             -   php
             -   mysql
         networks:
-            -   laravel
+            -   kon-check
 
     mysql:
-        image: mysql:5.7.22
+        image: mysql:8.0
         container_name: mysql
         restart: unless-stopped
         tty: true
@@ -33,7 +33,7 @@ services:
             SERVICE_TAGS: dev
             SERVICE_NAME: mysql
         networks:
-            -   laravel
+            -   kon-check
 
     php:
         build:
@@ -45,4 +45,4 @@ services:
         ports:
             -   "9000:9000"
         networks:
-            -   laravel
+            -   kon-check
