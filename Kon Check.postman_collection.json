@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "3f1770e7-0d65-4a2e-8d2d-c95af046d7d7",
+		"name": "Kon Check",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13948225"
+	},
+	"item": [
+		{
+			"name": "Login Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"test@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"name\" : \"User\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/{{version}}/companies",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODZmZmQ1My01OWYzLTQ0ZmUtOTExYy1lNjBmZDg3ZmE1YWMiLCJqdGkiOiJlN2YyNjRjMDA1ZTNjN2JmNzNhYjBiNGNmOTEzZGRiZmEzMWZjYTQwYjlmNGVkZGQwZGM3NGM0MWZhYTNkY2Q0Nzc4MzMyZDVmMmU4Nzc4OCIsImlhdCI6MTY3NjQwNTg0Mi43MTA4ODMsIm5iZiI6MTY3NjQwNTg0Mi43MTA4ODgsImV4cCI6MTcwNzk0MTg0Mi43MDYzOTEsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.PbR8YlfyIzeJ-QH5ePKDVB42-TIyOPUZFPjDaRC7-W94AdzUKWqtofhFz4q08aKVMgXFqtcxKWJ3_gMoHej0adtnOg4KkpG4N4byhKZpUiKGnRK4bDD31xgoM_iEWiJrdHrfXVVZilJq125Nxn2d2tO2HOYqIrY8l2ppegYjMsMYDPxUXEZl_HZCAJxQ2ABfp6pNiXnR2b7fm8MWLrbcZSCDs-HaP4gB9DssgOYGLMn45d4PwRo-Cy4V1ZYQfqX2DePh97qu5BxMzT6_cumbK2PZzvm9D3sQbe5JkXWhw8A-YPTflg0oH6Crjccp7rXeY96ZNGK20zu1cKnJqE72t0BpfMY2zNFbzbKNyKXh7kBXXSpJQy9LRFbmW1qXZbd6HEbNah46DUnrKOjSxK6We5Mh1CCS6AgBBI-JzzVMGVcCByuDAxx4nhZ0mui-neO4CeIot1j6SV2MkFzuJ2QKh_IaP7Wuqpf0cAqxddrnDkmHQXYnZmSipIW9B8nQEe0l9DMFG6khyNE8CWcWm6r2CDX_W5JT8qpAJ93M-lQ3Mb9C3RBUIIpV6SKo61L2VO55_hC3y75tGNZ-Szp9lWnIwHLzQwmNa_UU_DXrK4FB7jbzKjE4d39CCL8XpxUOwle7DtPi1y5mDypPjLgkhNjlH3lab-Af_ZIFeELtsTa6LBY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"test@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"name\" : \"Admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/companies",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Articles Index",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/{{version}}/companies",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Article Show",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/{{version}}/articles/{{articleUuid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"articles",
+						"{{articleUuid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Article Store",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"company-name\",\r\n    \"email\": \"company-email@gmail.com\",\r\n    \"address\": \"test address\",\r\n    \"vat_number\": \"1001\",\r\n    \"contact_name\": \"Contact name\",\r\n    \"contact_phone\": \"Contact phone\",\r\n    \"contact_email\": \"contact-email@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/{{version}}/articles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Article Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"updated-company-test\",\r\n    \"email\": \"updated-company-email@mail.com\",\r\n    \"address\": \"updated-test address\",\r\n    \"vat_number\": \"updated-1001\",\r\n    \"contact_name\": \"updated-Contact name\",\r\n    \"contact_phone\": \"updated-Contact phone\",\r\n    \"contact_email\": \"updated-contact-email@mail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/{{version}}/articles/{{articleUuid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"articles",
+						"{{articleUuid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "version",
+			"value": "v1",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "test@gmail.com",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "password",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODZmZmQ1My01OWYzLTQ0ZmUtOTExYy1lNjBmZDg3ZmE1YWMiLCJqdGkiOiJlN2YyNjRjMDA1ZTNjN2JmNzNhYjBiNGNmOTEzZGRiZmEzMWZjYTQwYjlmNGVkZGQwZGM3NGM0MWZhYTNkY2Q0Nzc4MzMyZDVmMmU4Nzc4OCIsImlhdCI6MTY3NjQwNTg0Mi43MTA4ODMsIm5iZiI6MTY3NjQwNTg0Mi43MTA4ODgsImV4cCI6MTcwNzk0MTg0Mi43MDYzOTEsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.PbR8YlfyIzeJ-QH5ePKDVB42-TIyOPUZFPjDaRC7-W94AdzUKWqtofhFz4q08aKVMgXFqtcxKWJ3_gMoHej0adtnOg4KkpG4N4byhKZpUiKGnRK4bDD31xgoM_iEWiJrdHrfXVVZilJq125Nxn2d2tO2HOYqIrY8l2ppegYjMsMYDPxUXEZl_HZCAJxQ2ABfp6pNiXnR2b7fm8MWLrbcZSCDs-HaP4gB9DssgOYGLMn45d4PwRo-Cy4V1ZYQfqX2DePh97qu5BxMzT6_cumbK2PZzvm9D3sQbe5JkXWhw8A-YPTflg0oH6Crjccp7rXeY96ZNGK20zu1cKnJqE72t0BpfMY2zNFbzbKNyKXh7kBXXSpJQy9LRFbmW1qXZbd6HEbNah46DUnrKOjSxK6We5Mh1CCS6AgBBI-JzzVMGVcCByuDAxx4nhZ0mui-neO4CeIot1j6SV2MkFzuJ2QKh_IaP7Wuqpf0cAqxddrnDkmHQXYnZmSipIW9B8nQEe0l9DMFG6khyNE8CWcWm6r2CDX_W5JT8qpAJ93M-lQ3Mb9C3RBUIIpV6SKo61L2VO55_hC3y75tGNZ-Szp9lWnIwHLzQwmNa_UU_DXrK4FB7jbzKjE4d39CCL8XpxUOwle7DtPi1y5mDypPjLgkhNjlH3lab-Af_ZIFeELtsTa6LBY",
+			"type": "string"
+		},
+		{
+			"key": "articleUuid",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
